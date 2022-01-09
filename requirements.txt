@@ -1,0 +1,3 @@
+graphpipe
+pillow
+opencv-python
