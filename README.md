@@ -64,3 +64,17 @@ pip install -r requirements.txt
 > 
 > *For test_data\g3.png classification is: [402] acoustic guitar*
 > ![g3.png](./test_data/g3.png "Guitar 3")
+
+## How to convert model from H5 to PB
+> It's work fine in WSL2 (Windows 10/Ubuntu-20.04)
+> 
+> @see: <https://oracle.github.io/graphpipe/#/guide/servers/converting?id=tensorflow-model-formats>
+
+1) Download h5 model:
+```commandline
+curl https://oracle.github.io/graphpipe/models/squeezenet.h5 > squeezenet.h5
+```
+2) Run dockerized converter:
+```commandline
+docker run -v "$PWD:/tmp/" sleepsonthefloor/graphpipe-h5topb:latest /tmp/squeezenet.h5 /tmp/converted_squeezenet.pb
+```
